@@ -63,6 +63,22 @@ end
 puts "second attempt: #{result}"
 puts "elapsed time = #{Time.now - start_time} seconds"
 
+
+start_time = Time.now
+digits = num.split('').map { |n| n.to_i }
+result = 0
+
+while digits.length > 4
+	product = digits[-1] * digits[-2] * digits[-3] * digits[-4] * digits[-5]
+	result = product if product > result
+
+	digits.pop
+end
+
+puts "third attempt: #{result}"
+puts "elapsed time = #{Time.now - start_time} seconds"
+
+
 #OUTPUT
 # second attempt: 40824
 # elapsed time = 0.001268 seconds
