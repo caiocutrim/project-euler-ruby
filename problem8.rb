@@ -64,7 +64,15 @@ puts "second attempt: #{result}"
 puts "elapsed time = #{Time.now - start_time} seconds"
 
 
+#--------------------------------------------------------------------------------
+# THIRD ATTEMPT * FASTEST *
+# Start at the end of the array and go backwards towards the beginning of the 
+# collection of numbers.  Use "pop" to remove items from the end of the array of
+# digits.  This should be better than "shift", because "shift" has to re-index
+# the elements in the array after removing the first element.
+#--------------------------------------------------------------------------------
 start_time = Time.now
+
 digits = num.split('').map { |n| n.to_i }
 result = 0
 
@@ -75,7 +83,7 @@ while digits.length > 4
 	digits.pop
 end
 
-puts "third attempt: #{result}"
+puts "result: #{result}"
 puts "elapsed time = #{Time.now - start_time} seconds"
 
 
