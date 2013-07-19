@@ -1,6 +1,5 @@
 # Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
 ###############################################################################
-# Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
 num_string = %Q{37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
 74324986199524741059474233309513058123726617309629
@@ -115,4 +114,4 @@ puts num_string.split("\n").map { |s| s.to_i }.reduce { |total, num| total += nu
 # the SECOND ATTEMPT: not only are we converting each number to an integer, we're also taking a rance
 # of characters from a string.  The lookup should be a small cost, but it's a cost we don't have
 # to pay (as evidenced by FIRST and SECOND ATTEMPT).
-puts num_string.split("\n").map { |s| s[0..11].to_i }.reduce { |total, num| total += num }.to_s[0..9]
+puts num_string.split("\n").map { |s| s[0..10].to_i }.reduce { |total, num| total += num }.to_s[0..9]
