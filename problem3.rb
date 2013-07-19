@@ -1,19 +1,7 @@
-#arr = (2..13195).to_a
-#max = Math.sqrt(13195)
-#idx = 0
-
-#while arr[idx] < max do
-#	prime = arr[idx]
-
-#	(arr[idx+1]..arr.length).each do |j|
-#		arr.delete_at(j) if arr[j] % prime == 0
-#	end
-
-#	idx += 1
-#end
-
-#puts arr
-
+# The prime factors of 13195 are 5, 7, 13 and 29.
+#
+# What is the largest prime factor of the number 600851475143 ?
+###############################################################################
 puts "CHEATING - FOUND ON INTER-WEBS"
 def prime_factors(n)
   return [] if n == 1
