@@ -31,12 +31,12 @@ max_product = 0
 # diagonals.  Store those values in a hash, then ask the hash for the biggest number it has.
 # Not pretty, but it works.
 def max_product_in_slice(slice)
-	results = Hash.new
-
-	results["max_row_product"] = slice.row_vectors.map { |r| r[0] * r[1] * r[2] *r[3] }.max
-	results["max_col_product"] = slice.column_vectors.map { |c| c[0] * c[1] * c[2] * c[3] }.max
-	results["diagonal_left_to_right"] = slice[0, 0] * slice[1, 1] * slice[2, 2] * slice[3, 3]
-	results["diagonal_right_to_left"] = slice[0, 3] * slice[1, 2] * slice[2, 1] * slice[3, 0]
+	results = {
+		:max_row_product => slice.row_vectors.map { |r| r[0] * r[1] * r[2] * r[3] }.max,
+		:max_col_product => slice.column_vectors.map { |c| c[0] * c[1] * c[2] * c[3] }.max,
+		:diagonal_left_to_right => slice[0, 0] * slice[1, 1] * slice[2, 2] * slice[3, 3],
+		:diagonal_right_to_left => slice[0, 3] * slice[1, 2] * slice[2, 1] * slice[3, 0]
+	}
 
 	results.values.max
 end
