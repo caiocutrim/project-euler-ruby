@@ -38,7 +38,7 @@ triangle_numbers = Enumerator.new do |i|
 	end
 end
 
-# SOLVE
+#SOLVE
 result = 0
 
 triangle_numbers.each do |i|
