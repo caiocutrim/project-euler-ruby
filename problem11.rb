@@ -26,6 +26,7 @@ grid = Matrix[
 ]
 
 max_product = 0
+SLICE_SIZE = 4
 
 # Get the largest product for each row/column combination.  Get the product for the 
 # diagonals.  Store those values in a hash, then ask the hash for the biggest number it has.
@@ -41,13 +42,13 @@ def max_product_in_slice(slice)
 	results.values.max
 end
 
-# Only need to loop 17 times.  The last iteration will get the last 4 numbers from
-# the "rightmost" side of the grid.
-17.times do |row|
-	row.times do |col|
-		# Get a 4x4 sub-matrix from the 20x20 grid, starting from the "x" (row) and "y" (col)
-		# coordinates.
-		slice = grid.minor(row, 4, col, 4)
+# Only need to loop 16 times.  The last iteration will get the last 4 numbers from
+# the "rightmost" and "bottom-most" side of the grid.
+0.upto(grid.row_size - SLICE_SIZE) do |row|
+	0.upto(grid.column_size - SLICE_SIZE) do |col|
+		# Get a 4x4 sub-matrix (or whatever the SLICE_SIZE is set to) from the 20x20 grid, 
+		# starting from the "x" (row) and "y" (col) coordinates.
+		slice = grid.minor(row, SLICE_SIZE, col, SLICE_SIZE)
 		
 		# Multiply every which-way, and get the highest number.
 		product = max_product_in_slice(slice)
