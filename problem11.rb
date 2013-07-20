@@ -42,8 +42,8 @@ def max_product_in_slice(slice)
 	results.values.max
 end
 
-# Only need to loop 16 times.  The last iteration will get the last 4 numbers from
-# the "rightmost" and "bottom-most" side of the grid.
+# Only need to loop # of times less whatever the SLICE_SIZE is set to.  The last iteration 
+# will get the last group numbers from the "rightmost" and "bottom-most" side of the grid.
 0.upto(grid.row_size - SLICE_SIZE) do |row|
 	0.upto(grid.column_size - SLICE_SIZE) do |col|
 		# Get a 4x4 sub-matrix (or whatever the SLICE_SIZE is set to) from the 20x20 grid, 
