@@ -42,10 +42,8 @@ end
 result = 0
 
 triangle_numbers.each do |i|
-	if divisors(i).length >= 500
-		result = i
-		break
-	end
+	result = i
+	break if divisors(i).length >= 500
 end
 
 puts "answer = #{result}"
