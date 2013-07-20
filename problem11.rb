@@ -31,6 +31,9 @@ SLICE_SIZE = 4
 # Get the largest product for each row/column combination.  Get the product for the 
 # diagonals.  Store those values in a hash, then ask the hash for the biggest number it has.
 # Not pretty, but it works.
+# NOTE:  slice.each(:diagonal) won't work, because it doesn't fetch "both" of the diagonals.
+# the :diagonal will only fetch the top left to bottom right diagonal ("\"), it doesn't get
+# the top right to bottom left diagonal ("/").
 def max_product_in_slice(slice)
 	results = {
 		:max_row_product => slice.row_vectors.map { |r| r[0] * r[1] * r[2] * r[3] }.max,
@@ -46,6 +49,7 @@ end
 # will get the last group numbers from the "rightmost" and "bottom-most" side of the grid.
 0.upto(grid.row_size - SLICE_SIZE) do |row|
 	0.upto(grid.column_size - SLICE_SIZE) do |col|
+
 		# Get a 4x4 sub-matrix (or whatever the SLICE_SIZE is set to) from the 20x20 grid, 
 		# starting from the "x" (row) and "y" (col) coordinates.
 		slice = grid.minor(row, SLICE_SIZE, col, SLICE_SIZE)
