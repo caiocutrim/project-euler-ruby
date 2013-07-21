@@ -1,4 +1,6 @@
 # What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+#
+# ANSWER:  70600674
 ###############################################################################
 require 'matrix'
 start_time = Time.now

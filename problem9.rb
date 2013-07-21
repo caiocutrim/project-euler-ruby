@@ -5,6 +5,8 @@
 #
 # There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 # Find the product abc.
+#
+# ANSWER = x = 375, y = 200, z = 425, x * y * z = 31875000
 ###############################################################################
 # From http://en.wikipedia.org/wiki/Pythagorean_triple
 def generate_triple(m, n)

@@ -3,7 +3,11 @@
 # Find the largest palindrome made from the product of two 3-digit numbers.
 #
 # palindromes = []
+#
+# ANSWER:  906609
 ###############################################################################
+palindromes = []
+
 100.upto(999) do |i|
 	i.upto(999) do |j|
 		result = i * j
