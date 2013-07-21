@@ -37,7 +37,7 @@ def count_collatz_sequence_steps(n)
 		end
 
 		while n.even? do 
-			n = n/2
+			n /= 2
 			steps += 1 
 		end
 	end
