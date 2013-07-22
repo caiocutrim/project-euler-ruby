@@ -43,7 +43,7 @@ class Integer < Numeric
 		def get_100_through_999(n)
 			return "#{@map[n[0]]} hundred" if n[1..2] == "00"
 
-			tens_and_ones = n[1..2].to_i.to_words
+			tens_and_ones = get_0_through_99(n[1..2])
 			"#{@map[n[0]]} hundred and #{tens_and_ones}"
 		end
 
