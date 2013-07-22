@@ -20,38 +20,35 @@ class Integer < Numeric
 
 		s = self.abs.to_s
 
-		get_one_thru_19_dictionary
-		get_tens_dictionary
+		build_map
 
 		return "one thousand" if self == 1000
 
-		return get_1_through_99(s) if (0..99).include?(self)
+		return get_0_through_99(s) if (0..99).include?(self)
 
-		return get_100_through_999(s) if (100..999).include?(self)
+		get_100_through_999(s)
 	end
 
 	private 
 
-		def get_1_through_99(n)
-			return "#{@tens['1']}" if self == 10
-			return "#{@ones[n]}" if (0..19).include?(self)
-			
-			if (20..99).include?(self)
-				return n[1] == "0" ? "#{@tens[n[0]]}" : "#{@tens[n[0]]}-#{@ones[n[1]]}" 
-			end
+		def get_0_through_99(n)
+			return @map[n] if (0..19).include?(self) || n[1] == "0"
+
+			tens = @map["#{n[0]}0"]
+			ones = @map[n[1]]
+
+		 	"#{tens}-#{ones}"
 		end
 
 		def get_100_through_999(n)
-			if n[1] == "0" && n[2] == "0"
-				return "#{@ones[n[0]]} hundred"
-			else
-				tens_and_ones = n[1..2].to_i.to_words
-				return "#{@ones[n[0]]} hundred and #{tens_and_ones}"
-			end
+			return "#{@map[n[0]]} hundred" if n[1] == "0" && n[2] == "0"
+
+			tens_and_ones = n[1..2].to_i.to_words
+			"#{@map[n[0]]} hundred and #{tens_and_ones}"
 		end
 
-		def get_one_thru_19_dictionary
-			@ones = {
+		def build_map
+			@map = {
 				"0" => "zero",
 				"1" => "one", 
 				"2" => "two",
@@ -62,6 +59,7 @@ class Integer < Numeric
 				"7" => "seven",
 				"8" => "eight",
 				"9" => "nine",
+				"10" => "ten",
 				"11" => "eleven",
 				"12" => "twelve",
 				"13" => "thirteen",
@@ -70,21 +68,15 @@ class Integer < Numeric
 				"16" => "sixteen",
 				"17" => "seventeen",
 				"18" => "eighteen",
-				"19" => "nineteen"
-			}
-		end
-
-		def get_tens_dictionary
-			@tens = {
-				"1" => "ten",
-				"2" => "twenty",
-				"3" => "thirty",
-				"4" => "forty",
-				"5" => "fifty",
-				"6" => "sixty",
-				"7" => "seventy",
-				"8" => "eighty",
-				"9" => "ninety"
+				"19" => "nineteen",
+				"20" => "twenty",
+				"30" => "thirty",
+				"40" => "forty",
+				"50" => "fifty",
+				"60" => "sixty",
+				"70" => "seventy",
+				"80" => "eighty",
+				"90" => "ninety"
 			}
 		end
 end
