@@ -16,7 +16,7 @@ class Integer < Numeric
 	# 	puts "1000: #{1000.to_words}"
 	# 	1111.to_words
 	def to_words
-		raise "Can only get words for numbers 0 - 1000." if self > 1000
+		raise "Can only get words for numbers 0 - 1000." if self.abs > 1000
 
 		return "one thousand" if self.abs == 1000
 
