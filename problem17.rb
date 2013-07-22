@@ -18,11 +18,11 @@ class Integer < Numeric
 	def to_words
 		raise "Can only get words for numbers 0 - 1000." if self > 1000
 
+		return "one thousand" if self.abs == 1000
+
 		s = self.abs.to_s
 
 		build_map
-
-		return "one thousand" if self == 1000
 
 		return get_0_through_99(s) if (0..99).include?(self)
 
@@ -41,7 +41,7 @@ class Integer < Numeric
 		end
 
 		def get_100_through_999(n)
-			return "#{@map[n[0]]} hundred" if n[1] == "0" && n[2] == "0"
+			return "#{@map[n[0]]} hundred" if n[1..2] == "00"
 
 			tens_and_ones = n[1..2].to_i.to_words
 			"#{@map[n[0]]} hundred and #{tens_and_ones}"
@@ -83,6 +83,6 @@ end
 
 #SOLVE
 start_time = Time.now
-result = (1..1000).reduce("") { |chars, i| chars << i.to_words }.gsub(" ", "").gsub("-", "").length
+result = (1..1000).reduce("") { |chars, i| chars << i.to_words }.gsub(/[\s-]/, "").length
 puts "answer = #{result}"
 puts "elapsed time = #{Time.now - start_time}"
