@@ -14,6 +14,7 @@ def factorial(n)
 	return n * factorial(n - 1)
 end
 
+# Started here: http://www.robertdickau.com/lattices.html
 # Found equation here:  http://www.robertdickau.com/manhattan.html
 possible_paths = factorial(2 * grid_size) / (factorial(grid_size)) ** 2
 
