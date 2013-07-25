@@ -4,15 +4,15 @@
 #
 # ANSWER = 137846528820
 ###############################################################################
-start_time = Time.now
-# Assumption:  The grid is a square, so the number of rows and number of 
-# columns are the same
-grid_size = 20
-
 def factorial(n)
 	return 1 if n == 1
 	return n * factorial(n - 1)
 end
+
+start_time = Time.now
+# Assumption:  The grid is a square, so the number of rows and number of 
+# columns are the same
+grid_size = 20
 
 # Started here: http://www.robertdickau.com/lattices.html
 # Found equation here:  http://www.robertdickau.com/manhattan.html
