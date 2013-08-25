@@ -20,7 +20,6 @@ end
 # throats out in a bloody melee that will no doubt cause catastrophic damaage to the ship that is carrying our specimens to their
 # new colony.
 def we_were_fucking_MADE_for_each_other?(first, second)
-	#return false if first.nil? || second.nil?
 	first == second
 end
 
@@ -33,7 +32,7 @@ def eugenics_program(candidate)
 	candidate_genetic_code = mating_algorithm(candidate).reduce(:+) #284
 	ideal_partner_genetic_code = mating_algorithm(candidate_genetic_code).reduce(:+) #220
 
-	# Can't mate with yourself, buddy (and produce offspring, anyway)....
+	# Can't mate with yourself, buddy - you'll go blind!
 	return if candidate_genetic_code == ideal_partner_genetic_code
 
 	return candidate_genetic_code, ideal_partner_genetic_code if we_were_fucking_MADE_for_each_other?(ideal_partner_genetic_code, candidate)
