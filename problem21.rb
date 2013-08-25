@@ -20,7 +20,7 @@ end
 # throats out in a bloody melee that will no doubt cause catastrophic damaage to the ship that is carrying our specimens to their
 # new colony.
 def we_were_fucking_MADE_for_each_other?(first, second)
-	return false if first.nil? || second.nil?
+	#return false if first.nil? || second.nil?
 	first == second
 end
 
