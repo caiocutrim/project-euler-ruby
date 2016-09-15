@@ -40,17 +40,20 @@ result = 0
 	result = product if product > result
 end
 
-puts "first attempt: #{result}"
-puts "elapsed time = #{Time.now - start_time} seconds."
+puts "FIRST ATTEMPT"
+puts "-------------"
+puts "result: #{result}"
+puts "elapsed time = #{Time.now - start_time} seconds.\n\n"
 
 # OUTPUT
 # first attempt: 40824
 # elapsed time = 0.00145 seconds.
 
 #--------------------------------------------------------------------------------
-# SECOND ATTEMPT * FASTER *
+# SECOND ATTEMPT * SLOWEST *
 # use "shift" to remove the first element of the "digits" array, then always
-# multiply the first 5 elements in the array.
+# multiply the first 5 elements in the array.  Slow because array is re-indexed
+# after each "shift" call.
 #--------------------------------------------------------------------------------
 start_time = Time.now
 
@@ -64,8 +67,10 @@ while digits.length > 0
 	digits.shift
 end
 
-puts "second attempt: #{result}"
-puts "elapsed time = #{Time.now - start_time} seconds"
+puts "SECOND ATTEMPT"
+puts "--------------"
+puts "result: #{result}"
+puts "elapsed time = #{Time.now - start_time} seconds.\n\n"
 
 
 #--------------------------------------------------------------------------------
@@ -87,10 +92,24 @@ while digits.length > 4
 	digits.pop
 end
 
+puts "THIRD ATTEMPT"
+puts "-------------"
 puts "result: #{result}"
 puts "elapsed time = #{Time.now - start_time} seconds"
 
 
 #OUTPUT
-# second attempt: 40824
-# elapsed time = 0.001268 seconds
+# FIRST ATTEMPT
+# -------------
+# result: 40824
+# elapsed time = 0.00088 seconds.
+#
+# SECOND ATTEMPT
+# --------------
+# result: 40824
+# elapsed time = 0.001172 seconds.
+#
+# THIRD ATTEMPT
+# -------------
+# result: 40824
+# elapsed time = 0.000653 seconds
