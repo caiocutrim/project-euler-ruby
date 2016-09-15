@@ -102,14 +102,14 @@ puts "elapsed time = #{Time.now - start_time} seconds"
 # FIRST ATTEMPT
 # -------------
 # result: 40824
-# elapsed time = 0.00088 seconds.
+# elapsed time = 0.000876 seconds.
 #
 # SECOND ATTEMPT
 # --------------
 # result: 40824
-# elapsed time = 0.001172 seconds.
+# elapsed time = 0.001164 seconds.
 #
 # THIRD ATTEMPT
 # -------------
 # result: 40824
-# elapsed time = 0.000653 seconds
+# elapsed time = 0.000651 seconds
